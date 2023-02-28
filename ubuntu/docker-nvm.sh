@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Check root permissions
+# Script installs docker and node version manager (nvm)
 
+# Check root permission
 SUDO=
 if [ "$UID" != "0" ]; then
 	if [ -e /usr/bin/sudo -o -e /bin/sudo ]; then
@@ -49,16 +50,10 @@ $SUDO usermod -aG docker $USER
 # Instal node version manager
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
-# Source .bashrc
-source ~/.bashrc
-
 # Add nvm to path
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Node version
-read -p "Enter node version to install: " NODE_VERSION
-
 # Install node version
-nvm install $NODE_VERSION
+# Eg: nvm install 14.10.0
