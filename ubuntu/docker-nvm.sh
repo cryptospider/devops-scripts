@@ -17,7 +17,7 @@ fi
 $SUDO apt-get update
 
 # Upgrade packages
-$SUDO apt-get upgrade
+# $SUDO apt-get upgrade
 
 # Uninstall old versions
 $SUDO apt-get remove docker docker-engine docker.io containerd runc
