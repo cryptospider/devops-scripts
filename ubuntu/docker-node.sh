@@ -49,11 +49,8 @@ $SUDO usermod -aG docker $USER
 # Instal node version manager
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
-set -e
-
 # Source .bashrc or .zshrc file
 source ~/.bashrc
-source ~/.zshrc
 
 # Node version
 read -p "Enter node version to install: " NODE_VERSION
