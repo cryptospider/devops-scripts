@@ -12,11 +12,14 @@ if [ "$UID" != "0" ]; then
 	fi
 fi
 
-# Uninstall old versions
-$SUDO apt-get remove docker docker-engine docker.io containerd runc
-
 # Update package index
 $SUDO apt-get update
+
+# Upgrade packages
+$SUDO apt-get upgrade
+
+# Uninstall old versions
+$SUDO apt-get remove docker docker-engine docker.io containerd runc
 
 # Install packages
 $SUDO apt-get install ca-certificates curl gnupg lsb-release
@@ -50,7 +53,8 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 source ~/.bashrc
 source ~/.zshrc
 
-# List node versions available
-nvm list-remote
+# Node version
+read -p "Enter node version to install: " NODE_VERSION
 
-nvm install v14.10.0
+# Install node version
+nvm install $NODE_VERSION
